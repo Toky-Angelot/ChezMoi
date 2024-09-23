@@ -43,3 +43,14 @@ svg {
         }
     }
 }
+
+.btn {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    display: block;
+    background-color: transparent;
+    backdrop-filter: blur(20px); 
+    border: none;
+    border-radius: 20px; 
+}

@@ -8,7 +8,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ImageReserveComponent } from './components/image-reserve/image-reserve.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import { SpeechService } from './services/speech.service';
+import { ToastModule } from 'primeng/toast';
+import { TooltipModule } from 'primeng/tooltip';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +26,12 @@ import { SpeechService } from './services/speech.service';
     FooterComponent,
     ImageReserveComponent,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    ToastModule,
+    ConfirmDialogModule,
+    TooltipModule
   ],
+  providers: [ConfirmationService, MessageService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -32,7 +40,7 @@ export class AppComponent implements OnInit {
   title = 'HotelNareo';
 
   acceuil = `
-  Notre site vous fait découvrir votre rêve à la découverte des nouveaux logements correspondant à votre demande. Tous en vous offrant le meilleur d'acceder à tous les options de reservation.
+  Notre site vous fait découvrir votre rêve à la découverte des nouveaux logements correspondant à votre demande. Tous en vous offrant le meilleur d'accedé à tous les options de reservation.
   Si vous voulez faire une réservation, veuillez cliquez s'il vous plait sur le boutton réservation
 `
 decouvrir = `
@@ -43,8 +51,9 @@ contact = `
 `
 synth: any;
 recognition: any;
+isListening = false;
 
-constructor() {
+constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
   if (typeof window !== 'undefined') {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     this.recognition = new SpeechRecognition();
@@ -56,16 +65,76 @@ constructor() {
       const command = event.results[0][0].transcript.toLowerCase();
       this.handleVoiceCommand(command);
     };
+
+    this.recognition.onend = () => {
+      if (this.isListening) {
+        this.recognition.start(); // Redémarre la reconnaissance vocale
+      }
+    };
+
+    this.recognition.onerror = (event: any) => {
+      console.error('Erreur de reconnaissance vocale:', event.error);
+      if (this.isListening) {
+        this.recognition.start(); // Redémarre la reconnaissance vocale en cas d'erreur
+      }
+    };
   }
 }
 
+
 ngOnInit(): void {
-  this.startVoiceRecognition();
+  this.showVoiceRecognitionPrompt();
 }
 
-startVoiceRecognition() {
-  this.recognition.start();
+showVoiceRecognitionPrompt() {
+  this.confirmationService.confirm({
+    message: "Souhaitez-vous activer la reconnaissance vocale pour naviguer sur le site ?",
+    acceptButtonStyleClass:"p-button-danger p-button-text",
+    rejectButtonStyleClass:"p-button-text p-button-text",
+    accept: () => {
+      this.startContinuousVoiceRecognition();
+      this.messageService.add({severity:'success', summary: 'Activer', detail: 'Reconnaissance vocale activée.'});
+    },
+    reject: () => {
+      this.stopVoiceRecognition();
+      this.messageService.add({severity:'warn', summary: 'Désactiver', detail: 'Reconnaissance vocale désactivée.'});
+    }
+  });
 }
+
+// askForVoiceRecognitionPermission(): void {
+//   const wantsVoiceRecognition = confirm("Souhaitez-vous activer la reconnaissance vocale en continu pour naviguer sur le site ?");
+//   if (wantsVoiceRecognition) {
+//     this.startContinuousVoiceRecognition();
+//   } else {
+//     this.stopVoiceRecognition();
+//   }
+// }
+
+startContinuousVoiceRecognition(): void {
+  this.recognition.continuous = true;
+  this.recognition.start();
+  
+  this.recognition.onresult = (event: any) => {
+    const command = event.results[0][0].transcript.toLowerCase();
+    this.handleVoiceCommand(command);
+  };
+
+  this.recognition.onerror = (event: any) => {
+    console.error("Voice recognition error: ", event.error);
+  };
+
+  this.recognition.onend = () => {
+    // Restart the recognition if it stops
+    this.recognition.start();
+  };
+}
+
+stopVoiceRecognition(): void {
+  this.recognition.continuous = false;
+  this.recognition.stop();
+}
+
 
 handleVoiceCommand(command: string) {
   if (command.includes('accueil')) {
@@ -78,6 +147,8 @@ handleVoiceCommand(command: string) {
     console.log('Commande non reconnue:', command);
   }
 }
+
+
 
 scrollToSection(sectionId: string) {
   const element = document.getElementById(sectionId);
@@ -137,6 +208,9 @@ scrollToSection(sectionId: string) {
     window.speechSynthesis.speak(synth);
   }
 
+  stopSpeech() {
+    window.speechSynthesis.cancel();
+  }
 
 }
 

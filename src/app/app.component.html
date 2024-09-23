@@ -14,6 +14,33 @@
   <app-footer></app-footer>
 </div>
 
+
+
+
+<p-toast></p-toast>
+<p-confirmDialog header="Mode vocal" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<div class="btn">
+  <p-button 
+  icon="pi pi-microphone"
+  [rounded]="true" 
+  [text]="true"  
+  pTooltip="Activer commande vocal" 
+  showDelay="300" 
+  hideDelay="300" 
+  (click)="startContinuousVoiceRecognition()" />
+
+  <p-button 
+  icon="pi pi-minus-circle" 
+  [rounded]="true" 
+  [text]="true" 
+  pTooltip="Stoper la guide vocal" 
+  showDelay="300" 
+  hideDelay="300" 
+  (click)="stopSpeech()" 
+  severity="danger"/>
+</div>
+
 <!-- Boutton stop speech (disposition) -->
 <!-- Boutton activate speech (disposition) -->
 <!-- Caroussel -->

@@ -17,7 +17,7 @@ import { FormsModule, NgModel } from '@angular/forms';
   templateUrl: './acceuil.component.html',
   styleUrl: './acceuil.component.scss'
 })
-export class AcceuilComponent  implements AfterViewInit, OnInit {
+export class AcceuilComponent  implements AfterViewInit {
 
   // text = `
   // Bonjour.
@@ -88,12 +88,13 @@ export class AcceuilComponent  implements AfterViewInit, OnInit {
         scrub: 3,
       });
 
+      this.startTextToSpeech();
     }
   }
   
-  ngOnInit(): void {
-    this.startTextToSpeech();
-  }
+  // ngOnInit(): void {
+  //   this.startTextToSpeech();
+  // }
   
 
   scrollToSection(sectionId: string) {
@@ -104,8 +105,6 @@ export class AcceuilComponent  implements AfterViewInit, OnInit {
   }
 
 
-
-  
   startTextToSpeech() {
     const synth = new SpeechSynthesisUtterance();
     synth.text = this.text;
