@@ -9,12 +9,12 @@
             <ul>
                 <li><a  (click)="scrollToSection('acceuil')" (click)="speechAcceuil()">Accueil</a></li>
                 <li><a  (click)="scrollToSection('about')" (click)="speechDecouvrir()">Découvrir</a></li>
-                <li><a  (click)="scrollToSection('footer')">Contacter</a></li>
+                <li><a  (click)="scrollToSection('footer')" (click)="speechContact()">Contacter</a></li>
             </ul>
         </div>
         <div class="btn">
             <p-button icon="pi pi-microphone" [rounded]="true" [text]="true"  />
-            <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="stopSpeech()"/>
+            <p-button icon="pi pi-minus-circle" [rounded]="true" [text]="true" (click)="stopSpeech()" severity="danger"/>
         </div>
     </nav>
 </header>

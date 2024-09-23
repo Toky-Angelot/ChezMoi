@@ -43,6 +43,11 @@ export class AcceuilComponent  implements AfterViewInit, OnInit {
   decouvrir = `
     Découvrir
   `
+
+  contact = `
+    Contacter-nous
+  `
+
   synth: any;
 
   ngAfterViewInit(): void {
@@ -117,7 +122,14 @@ export class AcceuilComponent  implements AfterViewInit, OnInit {
 
   speechDecouvrir() {
     const synth = new SpeechSynthesisUtterance();
-    synth.text = this.acceuil; // Corrigez cette ligne
+    synth.text = this.decouvrir; // Corrigez cette ligne
+    synth.lang = 'fr-FR'; // Assurez-vous que la langue est définie
+    window.speechSynthesis.speak(synth);
+  }
+
+  speechContact() {
+    const synth = new SpeechSynthesisUtterance();
+    synth.text = this.contact; // Corrigez cette ligne
     synth.lang = 'fr-FR'; // Assurez-vous que la langue est définie
     window.speechSynthesis.speak(synth);
   }
@@ -125,8 +137,6 @@ export class AcceuilComponent  implements AfterViewInit, OnInit {
 
   
   stopSpeech() {
-    if(this.synth) {
       window.speechSynthesis.cancel();
-    }
   }
 }
