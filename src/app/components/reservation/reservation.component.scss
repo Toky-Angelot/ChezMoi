@@ -1,0 +1,75 @@
+.container {
+    padding: 3em;
+    width: 100%;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        gap: 5em;
+
+        .descri {
+            width: 50%;
+            padding-top: 3em;
+
+            p {
+                text-align: justify;
+                font-size: medium;
+            }
+
+            .descri-top {
+                padding-bottom: 2em;
+                border-bottom: solid 1px rgba(164, 163, 163, 0.261);
+            }
+
+            .descri-bottom {
+                button {
+                    margin-top: 2.5em;
+                    width: 50%;
+                    padding: 1em 0;
+                    background-color: #EE951F;
+                    border: none;
+                    color: white;
+                    font-family: w;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background-color: white;
+                    color: #EE951F;
+                    border: solid 1px #EE951F;
+                }
+            }
+        }
+
+        .reserve {
+            width: 100%;
+            height: 400px;
+        }
+
+
+    }
+
+    h3 {
+        font-family: w;
+        font-size: 5em;
+        padding-bottom: 1em;
+        border-bottom: solid 1px rgba(128, 128, 128, 0.463);
+    }
+
+    h1 {
+        font-family: w;
+        font-weight: bold;
+        font-size: 8em;
+        color: #EE951F;
+        width: 100%;
+        text-align: right;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: solid 5px #EE951F;
+    }
+}

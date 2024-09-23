@@ -1,0 +1,53 @@
+<div class="fondCloche">
+    <app-fond-cloche></app-fond-cloche>
+</div>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">Chez-Moi</div>
+        <div class="nav">
+            <ul>
+                <li><a  (click)="scrollToSection('acceuil')" (click)="speechAcceuil()">Accueil</a></li>
+                <li><a  (click)="scrollToSection('about')" (click)="speechDecouvrir()">Découvrir</a></li>
+                <li><a  (click)="scrollToSection('footer')">Contacter</a></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <p-button icon="pi pi-microphone" [rounded]="true" [text]="true"  />
+            <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="stopSpeech()"/>
+        </div>
+    </nav>
+</header>
+
+<section class="video-section">
+    <div class="video-container">
+        <video src="assets/video.mp4" autoplay loop muted></video>
+    </div>
+    <div class="img-container">
+        <img src="assets/fondBlanche.png" alt="" class="img">
+    </div>
+
+
+    <div class="text-couv">
+        <div  class="left-side">
+            <div class="tv">
+                <div class="bg">Rêve <span class="sm">Et</span></div>
+                <div class="bg bottom">Réalité</div>
+            </div>
+            <div class="text-container">
+                <p>
+                    Votre refuge parfait, que ce soit pour un séjour temporaire ou un nouveau départ. Trouvez l'endroit où vous vous sentirez immédiatement chez vous, dans une ambiance chaleureuse et conviviale.
+                </p>
+                <p>
+                    Découvrez votre havre de paix où chaque coin raconte un rêve. Ici, votre espace idéal devient réalité, que ce soit pour une nuit ou pour toujours.                
+                </p>
+            </div>
+        </div>
+        <div class="right-side">
+            <button (click)="scrollToSection('about')">Explorer site</button> <br>
+            <button>Réservation</button>
+        </div>
+    </div>
+
+</section>
+

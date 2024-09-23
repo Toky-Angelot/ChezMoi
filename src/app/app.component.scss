@@ -1,0 +1,45 @@
+.line-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: end;
+    overflow: hidden;
+    z-index: -1;
+}
+
+svg {
+    display: inline-block;
+    height: 100%;
+}
+
+@font-face {
+    font-family: w;
+    src: url(/assets/fonts/WanoQuin-ExtraBold.otf);
+}
+
+.dialog {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    right: 10em;
+
+    .content-dialog {
+        display: flex;
+
+        .left img {
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .right {
+            padding: 1em;
+            text-align: left;
+            font-size: x-small;
+        }
+    }
+}

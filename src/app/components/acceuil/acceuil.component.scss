@@ -1,0 +1,164 @@
+@font-face {
+    font-family: w;
+    src: url(/assets/fonts/WanoQuin-ExtraBold.otf);
+}
+
+.fondCloche {
+    position: fixed;
+    z-index: -1;
+}
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 3rem;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+    color: white;
+    background-color: transparent;
+    backdrop-filter: blur(20px); 
+    
+
+    .logo{
+        text-transform: capitalize;
+        font-size: 30px;
+        cursor: pointer;
+        font-family: w;
+        color: #EE951F;
+    }
+
+    .nav ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+
+    .menu{
+        display: flex;
+        gap: 20%;
+        text-transform: uppercase;
+        font-weight: 100;     
+        li {
+            list-style: none;
+            a {
+                color: white;
+                font-size: x-small;
+                text-decoration: none;
+            }
+
+        }
+    }
+}
+
+section{
+    width: 100vw;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.video-section {
+    video{
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        z-index: -2;
+        position: relative;
+    }
+
+    .img-container{
+        position: absolute;
+        top:0;
+        height: 100vh;
+        width: 100vw;
+        .img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+    }
+}
+
+.text-couv {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    display: flex;
+    padding: 10em 3em;
+    color: white;
+
+    .tv {
+        font-family: w;
+        text-transform: capitalize;
+
+        span {
+            position: relative;
+            bottom: 1em;
+        }
+
+        .bg{
+            font-size: 8em;
+        }
+        
+        .sm{
+            font-size: xx-large;
+            height: 40px;
+        } 
+        
+        .bottom {
+            position: relative;
+            bottom: .5em;
+            left: 25%;
+        }
+
+    }
+
+    .text-container {
+        font-size: x-small;
+        width: 30%;
+        // text-align: justify;
+    }
+
+    .right-side {
+        position: absolute;
+        bottom: 15%;
+        right: 10%;
+        letter-spacing: 2px;
+
+        button {
+            cursor: pointer;
+            border: solid 2px white;
+            margin: 0.3em 0;
+            padding: 1em 2em;
+            border-radius: 2px;
+            color: white;
+            background-color: transparent;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: x-small;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

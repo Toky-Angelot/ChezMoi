@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="content">
+    <div #threeDImage class="image threeD-image">
+      <ul #imageList id="image-list1">
+        <li *ngFor="let image of images; let index = index">
+            <div class="image1" id="image1_{{ index }}">
+              <img [src]="image" alt="Cloche {{ index }}" loading="lazy" />
+            </div>
+          </li> 
+      </ul>
+    </div>
+  </div>
+</div>
+
+
