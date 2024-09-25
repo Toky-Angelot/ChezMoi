@@ -13,6 +13,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     ToastModule,
     ConfirmDialogModule,
-    TooltipModule
+    TooltipModule,
+    CommonModule
   ],
   providers: [ConfirmationService, MessageService],
   templateUrl: './app.component.html',
@@ -44,14 +46,15 @@ export class AppComponent implements OnInit {
   Si vous voulez faire une réservation, veuillez cliquez s'il vous plait sur le boutton réservation
 `
 decouvrir = `
-  Découvrir
+Découvrez un projet d’exception où chaque détail est conçu pour réaliser votre rêve. Laissez-vous séduire par des chambres élégantes et confortables, un spa luxueux pour des moments de détente absolue, un jardin verdoyant propice à la sérénité, et un restaurant raffiné où les saveurs se marient à la perfection. Un cadre unique qui invite à l’évasion et au bien-être, pensé pour vous offrir une expérience inoubliable dans un environnement alliant luxe et confort.
 `
 contact = `
-  Contacter-nous
+N’hésitez pas à nous contacter pour toute question ou information supplémentaire. Notre équipe est à votre disposition pour vous accompagner et répondre à vos besoins. Ensemble, nous concrétiserons votre projet de rêve.
 `
 synth: any;
 recognition: any;
 isListening = false;
+zoomEnabled = false;
 
 constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
   if (typeof window !== 'undefined') {
@@ -101,6 +104,11 @@ showVoiceRecognitionPrompt() {
     }
   });
 }
+
+toggleZoom() {
+  this.zoomEnabled = !this.zoomEnabled;
+}
+
 
 // askForVoiceRecognitionPermission(): void {
 //   const wantsVoiceRecognition = confirm("Souhaitez-vous activer la reconnaissance vocale en continu pour naviguer sur le site ?");

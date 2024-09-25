@@ -41,11 +41,11 @@ export class AcceuilComponent  implements AfterViewInit {
   `
 
   decouvrir = `
-    Découvrir
+  Découvrez un projet d’exception où chaque détail est conçu pour réaliser votre rêve. Laissez-vous séduire par des chambres élégantes et confortables, un spa luxueux pour des moments de détente absolue, un jardin verdoyant propice à la sérénité, et un restaurant raffiné où les saveurs se marient à la perfection. Un cadre unique qui invite à l’évasion et au bien-être, pensé pour vous offrir une expérience inoubliable dans un environnement alliant luxe et confort.
   `
 
   contact = `
-    Contacter-nous
+  N’hésitez pas à nous contacter pour toute question ou information supplémentaire. Notre équipe est à votre disposition pour vous accompagner et répondre à vos besoins. Ensemble, nous concrétiserons votre projet de rêve.
   `
 
   synth: any;
@@ -84,7 +84,7 @@ export class AcceuilComponent  implements AfterViewInit {
   
       ScrollTrigger.create({
         animation: tl,
-        start: "top 1000",
+        start: "top 1500",
         scrub: 3,
       });
 
