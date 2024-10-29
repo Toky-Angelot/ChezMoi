@@ -13,7 +13,7 @@
 
             p {
                 text-align: justify;
-                font-size: medium;
+                font-size: small;
             }
 
             .descri-top {
@@ -22,10 +22,10 @@
             }
 
             .descri-bottom {
-                button {
-                    margin-top: 2.5em;
-                    width: 50%;
-                    padding: 1em 0;
+                a {
+                    position: relative;
+                    top: 2.5em;
+                    padding: 1em 2em;
                     background-color: #EE951F;
                     border: none;
                     color: white;
@@ -34,7 +34,7 @@
                     cursor: pointer;
                 }
 
-                button:hover {
+                a:hover {
                     background-color: white;
                     color: #EE951F;
                     border: solid 1px #EE951F;
@@ -50,6 +50,12 @@
 
     }
 
+    @media (max-width: 550px) {
+        .content {
+            gap: 1em;
+        }
+    }
+
     h3 {
         font-family: w;
         font-size: 5em;
@@ -60,7 +66,7 @@
     h1 {
         font-family: w;
         font-weight: bold;
-        font-size: 8em;
+        font-size: 5vw;
         color: #EE951F;
         width: 100%;
         text-align: right;
@@ -73,3 +79,6 @@
         border: solid 5px #EE951F;
     }
 }
+
+
+  

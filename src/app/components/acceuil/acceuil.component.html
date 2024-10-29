@@ -1,6 +1,3 @@
-<div class="fondCloche">
-    <app-fond-cloche></app-fond-cloche>
-</div>
 
 <header>
     <nav class="navbar">
@@ -32,17 +29,21 @@
                 <div class="bg bottom">Réalité</div>
             </div>
             <div class="text-container">
-                <p>
+                <p id="none"> Votre refuge parfait, que ce soit pour un séjour temporaire ou un nouveau départ.</p>
+                <p id="block">
                     Votre refuge parfait, que ce soit pour un séjour temporaire ou un nouveau départ. Trouvez l'endroit où vous vous sentirez immédiatement chez vous, dans une ambiance chaleureuse et conviviale.
                 </p>
-                <p>
+                <p id="block">
                     Découvrez votre havre de paix où chaque coin raconte un rêve. Ici, votre espace idéal devient réalité, que ce soit pour une nuit ou pour toujours.                
                 </p>
             </div>
         </div>
+
         <div class="right-side">
-            <button (click)="scrollToSection('about')">Explorer site</button> <br>
-            <button>Reservation</button>
+            <button (click)="scrollToSection('about')">Explorer site</button>
+            <div>
+                <a href="https://waterskystudio.com/demo/#/home" target="_blank">Reservation</a>
+            </div>
         </div>
     </div>
 

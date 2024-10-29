@@ -5,7 +5,6 @@ import { AboutComponent } from './components/about/about.component';
 import { FondClocheComponent } from './components/fond-cloche/fond-cloche.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ImageReserveComponent } from './components/image-reserve/image-reserve.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
@@ -25,7 +24,6 @@ import { CommonModule } from '@angular/common';
     FondClocheComponent,
     ReservationComponent,
     FooterComponent,
-    ImageReserveComponent,
     DialogModule,
     ButtonModule,
     ToastModule,
@@ -44,13 +42,13 @@ export class AppComponent implements OnInit {
   acceuil = `
   Notre site vous fait découvrir votre rêve à la découverte des nouveaux logements correspondant à votre demande. Tous en vous offrant le meilleur d'accedé à tous les options de reservation.
   Si vous voulez faire une réservation, veuillez cliquez s'il vous plait sur le boutton réservation
-`
+`;
 decouvrir = `
 Découvrez un projet d’exception où chaque détail est conçu pour réaliser votre rêve. Laissez-vous séduire par des chambres élégantes et confortables, un spa luxueux pour des moments de détente absolue, un jardin verdoyant propice à la sérénité, et un restaurant raffiné où les saveurs se marient à la perfection. Un cadre unique qui invite à l’évasion et au bien-être, pensé pour vous offrir une expérience inoubliable dans un environnement alliant luxe et confort.
-`
+`;
 contact = `
 N’hésitez pas à nous contacter pour toute question ou information supplémentaire. Notre équipe est à votre disposition pour vous accompagner et répondre à vos besoins. Ensemble, nous concrétiserons votre projet de rêve.
-`
+`;
 synth: any;
 recognition: any;
 isListening = false;
@@ -177,9 +175,11 @@ scrollToSection(sectionId: string) {
 
     if (acceuilVisible) {
       this.speechAcceuil();
-    } else if (aboutVisible) {
+    } 
+    else if (aboutVisible) {
       this.speechDecouvrir();
-    } else if (footerVisible) {
+    } 
+    else if (footerVisible) {
       this.speechContact();
     }
   }

@@ -1,29 +1,30 @@
 <div id="acceuil">
+  <div class="pointAcceuil">.</div>
   <app-acceuil></app-acceuil>
 </div>
 <div>
   <div class="content">
     
-    <div class="about" id="about">
+    <div id="about">
+      <div class="pointAbout">.</div>
         <app-about></app-about>
         <app-reservation></app-reservation>
     </div>
     
-    <app-image-reserve></app-image-reserve>
-    
     <div id="footer">
+      <div class="pointFooter">.</div>
       <app-footer></app-footer>
     </div>
-  </div>  
-</div>  
+  </div>
+</div>
 
 
 
 <p-toast></p-toast>
-<p-confirmDialog header="Mode vocal" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-confirmDialog header="Mode vocal" icon="pi pi-microphone"></p-confirmDialog>
 
 <div class="btn">
-  <p-button 
+  <p-button
   icon="pi pi-microphone"
   [rounded]="true" 
   [text]="true"  
@@ -53,7 +54,4 @@
   severity="warning"/>
 </div>
 
-<!-- Boutton stop speech (disposition) -->
-<!-- Boutton activate speech (disposition) -->
 <!-- Caroussel -->
-<!-- Texte decouvrir -->
